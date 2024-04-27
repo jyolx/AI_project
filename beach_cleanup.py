@@ -29,9 +29,9 @@ class Beach :
     
     def __init__(self):
         self.size=7
-        self.robot_count=2
+        self.robot_count=4
         self.collection_point=(0,0)
-        self.debri_count=3
+        self.debri_count=4
         population=[]
         for x in range(self.size):
             for y in range(self.size):
@@ -109,9 +109,11 @@ class Beach :
                     heappush(open,new_node)
                     continue
                 for i in self.ongoing_tasks:
-                    if neighbour==i['path'][0] or neighbour==i['path'][1]:
-                        adjacent_pos.remove(neighbour)
-                        break
+                    t=current.g
+                    if t<len(i['path']) and t<len(i['path'])-1:
+                        if neighbour==i['path'][t+0] or neighbour==i['path'][t+1]:
+                            adjacent_pos.remove(neighbour)
+                            break
                 else:
                     new_node=node(neighbour,current.g+1,current.l,0,current)
                     new_node.set_heuristic(task_pos,collection_pos)
