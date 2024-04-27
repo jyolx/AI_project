@@ -29,9 +29,9 @@ class Beach :
     
     def __init__(self):
         self.size=7
-        self.robot_count=4
+        self.robot_count=5
         self.collection_point=(0,0)
-        self.debri_count=4
+        self.debri_count=5
         population=[]
         for x in range(self.size):
             for y in range(self.size):
@@ -40,8 +40,8 @@ class Beach :
         self.robot_positions=random.sample(population,self.robot_count)
     
     def show(self):
-        print("Time : ",self.time_step)
-        print("Collection Point :")
+        print("@Time : ",self.time_step)
+        print("@Collection Point,")
         print("Debri collected :",end=' ')
         for i,x in enumerate(self.debris):
             if(x==self.collection_point):
@@ -101,7 +101,7 @@ class Beach :
             if current.l==1 and current.g>t_max:
                 continue
             if current.l==1 and current.pos==task_pos:
-                n_1=node(current.pos,current.g,2,0,current)
+                n_1=node(current.pos,current.g+1,2,0,current)
                 n_1.set_heuristic(task_pos,collection_pos)
                 heappush(open,n_1)
             if current.l==2 and current.pos==collection_pos:
@@ -122,8 +122,8 @@ class Beach :
                     continue
                 for i in self.ongoing_tasks:
                     t=current.g
-                    if t<len(i['path']) and t<len(i['path'])-1:
-                        if neighbour==i['path'][t+0] or neighbour==i['path'][t+1]:
+                    if t<len(i['path'])-1:
+                        if neighbour==i['path'][t+1]:
                             adjacent_pos.remove(neighbour)
                             break
                 else:
