@@ -58,16 +58,17 @@ class Beach :
                 pos=(i,j)
                 a=0
                 print("|",end="")
-
-                for k in range(0,len(self.robot_positions)):
-                    if pos==self.robot_positions[k]:
-                        print(f" R{k} ",end="")
-                        a=1
-                        break
                 if pos==self.collection_point:
                     print(" C0 ",end="")
-                    a+=2
-                else:       
+                    a=1
+        
+                else: 
+                    for k in range(0,len(self.robot_positions)):
+                        if pos==self.robot_positions[k]:
+                            print(f" R{k} ",end="")
+                            a=1
+                            break
+
                     for k in range(0,len(self.debris)):
                         if pos==self.debris[k]:
                             print(f" D{k} ",end="")
