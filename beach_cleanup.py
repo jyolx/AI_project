@@ -101,6 +101,7 @@ class Beach :
             if current.l==1 and current.g>t_max:
                 continue
             if current.l==1 and current.pos==task_pos:
+                t_max=current.g
                 n_1=node(current.pos,current.g+1,2,0,current)
                 n_1.set_heuristic(task_pos,collection_pos)
                 heappush(open,n_1)
