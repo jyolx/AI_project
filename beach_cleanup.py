@@ -41,6 +41,17 @@ class Beach :
     
     def show(self):
         print("Time : ",self.time_step)
+        print("Collection Point :")
+        print("Debri collected :",end=' ')
+        for i,x in enumerate(self.debris):
+            if(x==self.collection_point):
+                print(f"D{i} ",end="")
+        print()
+        print("Resting robots :",end=" ")
+        for i,x in enumerate(self.robot_positions):
+            if(x==self.collection_point):
+                print(f"R{i} ",end="")
+        print()
         for i in range(0,self.size):
             print((self.size*9+1)*"-")
             for j in range(0,self.size):
