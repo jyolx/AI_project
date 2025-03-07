@@ -89,4 +89,24 @@ python beach_cleanup.py
 </ul>
 
 <h2>Example Output</h2>
+<p>These images showcase the output of the <strong>Multi-Level A*</strong> (MLA*) Path Planning Algorithm for task assignment and navigation in a robotic debris collection scenario.</p>
+<h3>Initial State (Time = 0)</h3>
+<ul>
+  <li>This image represents the <strong>initial setup</strong> with robots (<code>R0-R4</code>) and debris (<code>D0-D4</code>).</li>
+  <li>The <strong>task list</strong> displays the locations of debris, and the <strong>robot list</strong> shows their starting positions.</li>
+  <li>The grid represents the environment where robots will navigate to collect debris and transport it to the collection point (<code>C0</code>).</li>
+</ul>
+<img src="images/image1.png" alt="Initial State" width="600">
+
+<h2>Progressed State (Time = 17)</h2>
+<ul>
+  <li>The algorithm assigns <strong>tasks to robots</strong> based on the <strong>Manhattan distance</strong> heuristic.</li>
+  <li><strong>Debris collected:</strong> <code>D0, D1, D3, D4</code>, indicating successful task completion.</li>
+  <li><strong>Resting robots:</strong> <code>R0, R1, R3, R4</code>, showing which robots have completed their tasks.</li>
+  <li>The grid reflects <strong>robot movement</strong>, with some robots reaching their goal while others are still in transit.</li>
+</ul>
+<img src="images/image2.png" alt="Progressed State" width="600">
+
+
+
 
